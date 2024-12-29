@@ -1,0 +1,23 @@
+{
+  "name": "metadata",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "components/metadata/src",
+  "tags": ["components"],
+  "targets": {
+    "build": {
+      "executor": "@ebizbase/nx-internal:copyfiles",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist",
+        "inputPath": "components/metadata/src/**/*",
+        "clean": false
+      },
+      "configurations": {
+        "production": {},
+        "development": {}
+      },
+      "defaultConfiguration": "production"
+    }
+  }
+}

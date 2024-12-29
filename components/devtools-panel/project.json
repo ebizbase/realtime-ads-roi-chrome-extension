@@ -1,0 +1,60 @@
+{
+  "name": "devtools-panel",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "devtools-panel",
+  "sourceRoot": "components/devtools-panel/src",
+  "tags": ["components"],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/devtools-panel",
+        "index": "components/devtools-panel/src/index.html",
+        "main": "components/devtools-panel/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "components/devtools-panel/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": ["components/devtools-panel/src/assets"],
+        "styles": ["components/devtools-panel/src/styles.scss"],
+        "scripts": [],
+        "extractLicenses": false
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "none",
+          "optimization": {
+            "scripts": true,
+            "styles": {
+              "minify": true,
+              "inlineCritical": false
+            },
+            "fonts": true
+          }
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    }
+  }
+}

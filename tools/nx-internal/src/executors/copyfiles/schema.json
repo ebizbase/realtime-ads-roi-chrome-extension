@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "version": 2,
+  "title": "copyfiles executor",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "outputPath": {
+      "type": "string",
+      "description": "The output path of the generated files.",
+      "x-completion-type": "directory",
+      "x-priority": "important"
+    },
+    "inputPath": {
+      "type": "string",
+      "description": "The glob of target files.",
+      "x-priority": "important"
+    },
+    "watch": {
+      "type": "boolean",
+      "description": "Enable re-copying when files change.",
+      "default": false
+    },
+    "clean": {
+      "type": "boolean",
+      "description": "Remove previous output before build.",
+      "default": false
+    }
+  },
+  "required": ["outputPath", "inputPath"]
+}

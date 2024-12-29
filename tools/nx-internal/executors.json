@@ -1,0 +1,9 @@
+{
+  "executors": {
+    "copyfiles": {
+      "implementation": "./src/executors/copyfiles/executor",
+      "schema": "./src/executors/copyfiles/schema.json",
+      "description": "copyfiles executor"
+    }
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "content-script",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "components/content-script/src",
+  "tags": ["components"],
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/content-script",
+        "compiler": "swc",
+        "main": "components/content-script/src/main.ts",
+        "tsConfig": "components/content-script/tsconfig.app.json",
+        "generateIndexHtml": false,
+        "webpackConfig": "components/content-script/webpack.config.js",
+        "extractLicenses": false
+      },
+      "configurations": {
+        "development": {
+          "optimization": false,
+          "sourceMap": true,
+          "namedChunks": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "optimization": true,
+          "outputHashing": "none",
+          "sourceMap": false,
+          "namedChunks": false,
+          "vendorChunk": false
+        }
+      }
+    }
+  }
+}

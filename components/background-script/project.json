@@ -1,0 +1,38 @@
+{
+  "name": "background-script",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "components/background-script/src",
+  "tags": ["components"],
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/background-script",
+        "compiler": "swc",
+        "main": "components/background-script/src/main.ts",
+        "tsConfig": "components/background-script/tsconfig.app.json",
+        "generateIndexHtml": false,
+        "webpackConfig": "components/background-script/webpack.config.js",
+        "extractLicenses": false
+      },
+      "configurations": {
+        "development": {
+          "optimization": false,
+          "sourceMap": true,
+          "namedChunks": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "optimization": true,
+          "outputHashing": "none",
+          "sourceMap": false,
+          "namedChunks": false,
+          "vendorChunk": false
+        }
+      }
+    }
+  }
+}
